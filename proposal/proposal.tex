@@ -1,0 +1,128 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Include other packages here, before hyperref.
+
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex.  (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
+
+\cvprfinalcopy % *** Uncomment this line for the final submission
+
+\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+\ifcvprfinal\pagestyle{empty}\fi
+\begin{document}
+
+%%%%%%%%% TITLE
+\title{
+CS 7643 - Deep Learning \\
+Project Proposal \\
+}
+
+\maketitle
+%\thispagestyle{empty}
+
+%-----------------------------------------------------------------------------------------------------------------------
+\section{Project Information}
+%-----------------------------------------------------------------------------------------------------------------------
+
+\subsection{Team Name}
+
+Caption Captains
+
+\subsection{Project Title}
+
+Image Captioning with Deep Learning
+
+\subsection{Members}
+
+\begin{itemize}
+	\setlength\itemsep{0em}
+    \item[$-$] Christoper Dugan
+    \item[$-$] Mouhcine Aitounejjar
+    \item[$-$] Walker Stevens
+    \item[$-$] Xuan Xu
+\end{itemize}
+
+%-----------------------------------------------------------------------------------------------------------------------
+\section{Project Summary}
+%-----------------------------------------------------------------------------------------------------------------------
+
+Image captioning, in the context of deep learning, is the process of generating natural language descriptions from images.
+It has applications across the fields of medicine, human-computer interaction, marketing and social media to name a few.
+It also improves the lives of the visually impaired by enabling them to interact with images.\\
+
+This is an interesting topic because it is a relatively new domain
+that combines the fields of computer vision and natural language processing, which are both studied in this course.
+Further, it is a useful foundation for understanding how machines can interpret images. \\
+
+Our team is excited to work on this project that has many applications and
+also offers an opportunity to learn about combining CNN and NLP architectures.
+
+
+%-----------------------------------------------------------------------------------------------------------------------
+\section{Approach}
+%-----------------------------------------------------------------------------------------------------------------------
+
+After reading through the current papers on captioning techniques, we will run state of the art
+implementations in order to understand the fundamentals of captioning architectures for the model we 
+will construct.  Once we vectorize our language data, we will decide on the architecture that goes 
+into the CNN, encoder, and decoder.  This will consist of deciding the orientation/number of layers 
+as well as the method of normalization (batch vs. dropout).  Once we validate our results through 
+hyperparameter choice and architecture optimization, we will use the BLEU-4 metric to score our model 
+on the MS COCO dataset, as well as an observable sanity check by detecting its zero-shot capability. 
+As a bonus, we may also generate captions on our own personal images and possibly see if AI-generated 
+art reproduces similar images to the caption description.
+
+%-----------------------------------------------------------------------------------------------------------------------
+\section{Resources / Related Work \& Papers}
+%-----------------------------------------------------------------------------------------------------------------------
+
+After the release of BERT \cite{devlin-etal-2019-bert} and the adaption of transformers \cite{vaswani2017attention} into
+the realm of computer vision \cite{parmar2018image}, we witnessed a boom of \textit{Vision-and-Language Pre-training}
+(VLP) using multimodal models that process and align image and natural language text using transformer/BERT
+layer and cross-attention layer (e.g.: VilBERT \cite{lu2019vilbert}, Pixel-BERT \cite{huang2020pixel}, 
+VD-BERT \cite{wang2020vd}, 
+Unicoder-VL \cite{huang-etal-2019-unicoder}, VL-BERT \cite{su2019vl}, ImageBERT \cite{qi2020imagebert}, 
+Fashion-BERT \cite{gao2020fashionbert} , 
+VisualBERT \cite{li2019visualbert}, Uniter \cite{chen2020uniter}, LXMERT \cite{tan2019lxmert}, etc.)\\
+
+As of March 2023, mPLUG \cite{li2022mplug} achieved the highest BLEU-4 scores on image captioning on COCO Captions. 
+mPLUG targeted the bottlenecks of computational efficiency and image-text information asymmetry by 
+introducing cross-modal skip connections in the architecture. Thus enabling the multi-modal fusion to 
+occur at disparate levels in the abstraction hierarchy across the modalities. 
+Compared to connected-attention networks (concatenate visual and linguistic features as input) and 
+co-attention networks (separate transformers for visual and text with fusion happening via cross-attention layers), 
+mPLUG's proposed cross-modal skip-connected network was a top performer in downstream 
+tasks (including image captioning) and run-time efficiency.
+
+%-----------------------------------------------------------------------------------------------------------------------
+\section{Datasets}
+%-----------------------------------------------------------------------------------------------------------------------
+
+\begin{itemize}
+    \item[$-$] \url{https://cocodataset.org/\#captions-2015}
+    \item[$-$] \url{https://pytorch.org/vision/stable/generated/torchvision.datasets.CocoCaptions.html}
+\end{itemize}
+
+%-----------------------------------------------------------------------------------------------------------------------
+% references
+%-----------------------------------------------------------------------------------------------------------------------
+
+\newpage
+{\small
+\bibliographystyle{ieee_fullname}
+\bibliography{proposal}
+}
+
+\end{document}

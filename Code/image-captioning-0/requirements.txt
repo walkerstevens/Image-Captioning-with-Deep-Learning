@@ -1,0 +1,16 @@
+numpy
+matplotlib
+pydot
+graphviz
+ipywidgets
+jupyterlab
+nltk
+pycocotools
+tqdm
+torch
+torchvision
+torchaudio
+einops
+pillow
+h5py
+scikit-image
